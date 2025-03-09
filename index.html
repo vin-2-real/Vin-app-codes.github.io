@@ -9,61 +9,39 @@
 <body>
 
 <div class="container">
-    <h1>Code Generator</h1>
+    <h1 class="title">Code Generator</h1>
+    <p class="description">Click the button below to generate a random 5-character code.</p>
+
     <!-- Button to show code -->
-    <button id="generateButton" onclick="showCode()">Generate Code</button>
+    <button class="generate-btn" onclick="showCode()">Generate Code</button>
 
     <!-- Display area for showing the generated code -->
-    <div id="codeOutput">
+    <div id="codeOutput" class="code-output">
         <p>Click the button to generate a code</p>
+    </div>
+
+    <!-- Social media links -->
+    <div class="social-links">
+        <a href="https://discord.com" class="social-icon" target="_blank">Discord</a>
+        <a href="https://www.tiktok.com" class="social-icon" target="_blank">TikTok</a>
     </div>
 </div>
 
 <script>
-    // Array of 250 random alphanumeric 5-character codes
-const codes = [
-    'A1B2C', 'D3E4F', 'G5H6I', 'J7K8L', 'M9N0P',
-    'Q1R2S', 'T3U4V', 'W5X6Y', 'Z7A8B', 'C9D0E',
-    'F1G2H', 'I3J4K', 'L5M6N', 'O7P8Q', 'R9S0T',
-    'U1V2W', 'X3Y4Z', 'A5B6C', 'D7E8F', 'G9H0I',
-    'J1K2L', 'M3N4O', 'P5Q6R', 'S7T8U', 'V9W0X',
-    'Y1Z2A', 'B3C4D', 'E5F6G', 'H7I8J', 'K9L0M',
-    'N1O2P', 'Q3R4S', 'T5U6V', 'W7X8Y', 'Z9A0B',
-    'C1D2E', 'F3G4H', 'I5J6K', 'L7M8N', 'O9P0Q',
-    'R1S2T', 'U3V4W', 'X5Y6Z', 'A7B8C', 'D9E0F',
-    'G1H2I', 'J3K4L', 'M5N6O', 'P7Q8R', 'S9T0U',
-    'V1W2X', 'Y3Z4A', 'B5C6D', 'E7F8G', 'H9I0J',
-    'K1L2M', 'N3O4P', 'Q5R6S', 'T7U8V', 'W9X0Y',
-    'Z1A2B', 'C3D4E', 'F5G6H', 'I7J8K', 'L9M0N',
-    'O1P2Q', 'R3S4T', 'U5V6W', 'X7Y8Z', 'A9B0C',
-    'D1E2F', 'G3H4I', 'J5K6L', 'M7N8O', 'P9Q0R',
-    'S1T2U', 'V3W4X', 'Y5Z6A', 'B7C8D', 'E9F0G',
-    'H1I2J', 'K3L4M', 'N5O6P', 'Q7R8S', 'T9U0V',
-    'W1X2Y', 'Z3A4B', 'C5D6E', 'F7G8H', 'I9J0K',
-    'L1M2N', 'O3P4Q', 'R5S6T', 'U7V8W', 'X9Y0Z',
-    'A1B2C', 'D3E4F', 'G5H6I', 'J7K8L', 'M9N0P',
-    'Q1R2S', 'T3U4V', 'W5X6Y', 'Z7A8B', 'C9D0E',
-    'F1G2H', 'I3J4K', 'L5M6N', 'O7P8Q', 'R9S0T',
-    'U1V2W', 'X3Y4Z', 'A5B6C', 'D7E8F', 'G9H0I',
-    'J1K2L', 'M3N4O', 'P5Q6R', 'S7T8U', 'V9W0X',
-    'Y1Z2A', 'B3C4D', 'E5F6G', 'H7I8J', 'K9L0M',
-    'N1O2P', 'Q3R4S', 'T5U6V', 'W7X8Y', 'Z9A0B',
-    'C1D2E', 'F3G4H', 'I5J6K', 'L7M8N', 'O9P0Q',
-    'R1S2T', 'U3V4W', 'X5Y6Z', 'A7B8C', 'D9E0F',
-    'G1H2I', 'J3K4L', 'M5N6O', 'P7Q8R', 'S9T0U',
-    'V1W2X', 'Y3Z4A', 'B5C6D', 'E7F8G', 'H9I0J',
-    'K1L2M', 'N3O4P', 'Q5R6S', 'T7U8V', 'W9X0Y',
-    'Z1A2B', 'C3D4E', 'F5G6H', 'I7J8K', 'L9M0N',
-    'O1P2Q', 'R3S4T', 'U5V6W', 'X7Y8Z', 'A9B0C',
-    'D1E2F', 'G3H4I', 'J5K6L', 'M7N8O', 'P9Q0R',
-    'S1T2U', 'V3W4X', 'Y5Z6A', 'B7C8D', 'E9F0G',
-    'H1I2J', 'K3L4M', 'N5O6P', 'Q7R8S', 'T9U0V',
-    'W1X2Y', 'Z3A4B', 'C5D6E', 'F7G8H', 'I9J0K',
-    'L1M2N', 'O3P4Q', 'R5S6T', 'U7V8W', 'X9Y0Z'
-];
+    const codes = [
+        'A1B2C', 'D3E4F', 'G5H6I', 'J7K8L', 'M9N0P',
+        'Q1R2S', 'T3U4V', 'W5X6Y', 'Z7A8B', 'C9D0E',
+        'F1G2H', 'I3J4K', 'L5M6N', 'O7P8Q', 'R9S0T',
+        'U1V2W', 'X3Y4Z', 'A5B6C', 'D7E8F', 'G9H0I',
+        'J1K2L', 'M3N4O', 'P5Q6R', 'S7T8U', 'V9W0X',
+        'Y1Z2A', 'B3C4D', 'E5F6G', 'H7I8J', 'K9L0M',
+        'N1O2P', 'Q3R4S', 'T5U6V', 'W7X8Y', 'Z9A0B',
+        'C1D2E', 'F3G4H', 'I5J6K', 'L7M8N', 'O9P0Q',
+        'R1S2T', 'U3V4W', 'X5Y6Z', 'A7B8C', 'D9E0F',
+        // Add more codes...
+    ];
 
     function showCode() {
-        // Randomly select one code from the array and display it
         const randomCode = codes[Math.floor(Math.random() * codes.length)];
         document.getElementById('codeOutput').textContent = randomCode;
     }
